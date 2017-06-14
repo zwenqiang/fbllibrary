@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="sLeftIconId" type="id" />
+    <item name="sCenterBaseLineId" type="id" />
+    <item name="sLeftBottomTextId" type="id" />
+    <item name="lunboiv" type="id" />
+    <item type="id" name="statusbarutil_fake_status_bar_view" />
+    <item type="id" name="statusbarutil_translucent_view" />
+</resources>
