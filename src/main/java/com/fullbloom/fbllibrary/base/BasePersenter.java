@@ -2,7 +2,7 @@ package com.fullbloom.fbllibrary.base;
 
 
 import com.fullbloom.fbllibrary.network.APIParams;
-import com.fullbloom.fbllibrary.network.BaseRequestContext;
+import com.fullbloom.fbllibrary.network.NetUtils;
 import com.fullbloom.fbllibrary.network.DelRequest;
 import com.fullbloom.fbllibrary.network.GetRequest;
 import com.fullbloom.fbllibrary.network.OnResponseListener;
@@ -32,13 +32,13 @@ public class BasePersenter<V> implements IBasePersenter<V>{
     }
 
     protected static void doPost(int requestType, String url, Class clazz,String jsonKey, APIParams params, OnResponseListener listener){
-        BaseRequestContext.getInstance(PostRequest.getInstance()).doRequest(requestType,url,clazz, jsonKey,params,listener);
+        NetUtils.getInstance(PostRequest.getInstance()).doRequest(requestType,url,clazz, jsonKey,params,listener);
     }
     protected static void doGet(int requestType, String url, Class clazz, String jsonKey,APIParams params,OnResponseListener listener){
-        BaseRequestContext.getInstance(GetRequest.getInstance()).doRequest(requestType,url,clazz,jsonKey,params,listener);
+        NetUtils.getInstance(GetRequest.getInstance()).doRequest(requestType,url,clazz,jsonKey,params,listener);
     }
     protected static void doDel(int requestType, String url, Class clazz, String jsonKey,APIParams params,OnResponseListener listener){
-        BaseRequestContext.getInstance(DelRequest.getInstance()).doRequest(requestType,url,clazz,jsonKey,params,listener);
+        NetUtils.getInstance(DelRequest.getInstance()).doRequest(requestType,url,clazz,jsonKey,params,listener);
     }
 
 }

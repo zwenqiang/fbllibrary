@@ -6,24 +6,24 @@ package com.fullbloom.fbllibrary.network;
  * Created by zwq on 2017/3/27.
  */
 
-public class BaseRequestContext {
+public class NetUtils {
     private static BaseRequest baseRequest;
 
-    private BaseRequestContext(){}
-    private static BaseRequestContext instance = null;
-    public static BaseRequestContext getInstance(BaseRequest request){
+    private NetUtils(){}
+    private static NetUtils instance = null;
+    public static NetUtils getInstance(BaseRequest request){
         baseRequest = request;
         if(instance == null){
-            synchronized (BaseRequestContext.class){
+            synchronized (NetUtils.class){
                 if(instance == null){
-                    instance = new BaseRequestContext(request);
+                    instance = new NetUtils(request);
                 }
             }
         }
         return instance;
 }
 
-    private BaseRequestContext(BaseRequest baseRequest) {
+    private NetUtils(BaseRequest baseRequest) {
         this.baseRequest = baseRequest;
     }
     public void doRequest(int requestType,String url, Class clazz,String jsonKey, APIParams params,OnResponseListener responseListener){

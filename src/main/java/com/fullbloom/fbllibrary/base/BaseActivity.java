@@ -25,10 +25,6 @@ import android.widget.Toast;
 
 import com.fullbloom.fbllibrary.FBLLibrary;
 import com.fullbloom.fbllibrary.R;
-import com.fullbloom.fbllibrary.network.BaseRequestContext;
-import com.fullbloom.fbllibrary.network.DelRequest;
-import com.fullbloom.fbllibrary.network.GetRequest;
-import com.fullbloom.fbllibrary.network.PostRequest;
 import com.fullbloom.fbllibrary.receive.NetWorkListenerRecever;
 import com.fullbloom.fbllibrary.util.AppManager;
 import com.fullbloom.fbllibrary.util.CommonUtils;
