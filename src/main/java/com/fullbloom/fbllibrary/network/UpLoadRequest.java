@@ -42,9 +42,8 @@ public class UpLoadRequest extends ContextRequest {
 
             }
         }
-        builder.build();
 
-        RequestBody requestBody = builder.build();
+        MultipartBody requestBody = builder.build();
         Request.Builder builderq = new Request.Builder();
         CountingRequestBody countingRequestBody = new CountingRequestBody(requestType,requestBody,responseListener);
         builderq.url(url).post(countingRequestBody).tag(url).build();
