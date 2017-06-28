@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.IdentityHashMap;
+import java.util.List;
 
 import okhttp3.Headers;
 import okhttp3.MediaType;
@@ -30,16 +31,24 @@ public class UpLoadRequest extends ContextRequest {
             if (value instanceof File) {
 
                 File file = (File) value;
-                builder.addFormDataPart(key, file.getName(), RequestBody.create(MEDIA_TYPE_PNG, file));
+                builder.addFormDataPart(key, file.getName(), RequestBody.create(MEDIA_TYPE_PNG, String.valueOf(new File[]{file})));
 
             }else if (value instanceof InputStream) {
                 InputStream inputStream = (InputStream) value;
                 try {
-                    builder.addFormDataPart(key, System.currentTimeMillis()+"", RequestBody.create(MEDIA_TYPE_PNG, toByteArray(inputStream)));
+                    builder.addFormDataPart(key, System.currentTimeMillis()+"",
+                            RequestBody.create(MEDIA_TYPE_PNG, toByteArray(inputStream)));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
 
+            } else if(value instanceof List){
+                List<File> files = (List<File>) value;
+                if(files.size() > 0){
+                    for (File file: files) {
+                        builder.addFormDataPart(key, file.getName(), RequestBody.create(MEDIA_TYPE_PNG, file));
+                    }
+                }
             }
         }
 
